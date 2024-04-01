@@ -1,15 +1,18 @@
 import { useForm } from "react-hook-form";
 import { Button } from "../../components/Button/button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { esqueciSenhaSchema, esqueciSenhaType } from "../../components/Schema/admSchema";
+import {
+  esqueciSenhaSchema,
+  esqueciSenhaType,
+} from "../../components/Schema/admSchema";
 import { esqueciSenha } from "../../services/adminServices";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useState } from "react";
 
 export const EsqueciASenha = () => {
-  const [erro, setErro] = useState(false)
-    const navigate = useNavigate()
+  const [erro, setErro] = useState(false);
+  const navigate = useNavigate();
   const {
     register,
     reset,
@@ -20,12 +23,12 @@ export const EsqueciASenha = () => {
   async function sendForm(data: Record<string, any>) {
     const response = await esqueciSenha(data);
     if (!response) {
-      setErro(true)
+      setErro(true);
       return console.log("Falha ao enviar email de válidação");
     }
-    Cookies.set("email", data.email)
-    navigate("/admin/redefinir-senha")
-    reset()
+    Cookies.set("email", data.email);
+    navigate("/admin/redefinir-senha");
+    reset();
   }
 
   return (
@@ -44,8 +47,14 @@ export const EsqueciASenha = () => {
           type="email"
           placeholder="Ex:___________@gmail.com"
         />
-        {errors.email && <span className="text-sm text-red-500">{errors.email.message}</span>}
-        {erro && <span className="text-sm text-red-500">Email não encontrado no sistema!</span>}
+        {errors.email && (
+          <span className="text-sm text-red-500">{errors.email.message}</span>
+        )}
+        {erro && (
+          <span className="text-sm text-red-500">
+            Email não encontrado no sistema!
+          </span>
+        )}
         <Button type="submit" text="Validar email" />
       </form>
     </section>
