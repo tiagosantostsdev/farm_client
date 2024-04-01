@@ -25,7 +25,10 @@ import {
 } from "../Schema/produtoSchema";
 import { updateProdutos } from "../../services/produtosService";
 import { updateCarrinho } from "../../services/carrinhoService";
-import { updateCarrinhoSchema, updateCarrinhoType } from "../Schema/carrinhoSchema";
+import {
+  updateCarrinhoSchema,
+  updateCarrinhoType,
+} from "../Schema/carrinhoSchema";
 
 export const EditModal = (params: Record<string, any>) => {
   const { user } = useContext(UserContext);
@@ -497,62 +500,62 @@ export const EditModalProd = (params: Record<string, any>) => {
   );
 };
 
-export const EditModalCarr = (params: Record<string, any>) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<updateCarrinhoType>({
-    resolver: zodResolver(updateCarrinhoSchema),
-  });
+// export const EditModalCarr = (params: Record<string, any>) => {
+//   const {
+//     register,
+//     handleSubmit,
+//     formState: { errors },
+//   } = useForm<updateCarrinhoType>({
+//     resolver: zodResolver(updateCarrinhoSchema),
+//   });
 
-  async function sendForm(data: Record<string, any>) {
-    const response = await updateCarrinho(params.id, data);
-    console.log(data)
-    if (!response) {
-      return console.log("Falha ao actualizar produto, verifque o stock do produto");
-    }
-    console.log(response);
-    params.setOpenEditCarr(false);
-  }
+//   async function sendForm(data: Record<string, any>) {
+//     const response = await updateCarrinho(params.id, data);
+//     console.log(data)
+//     if (!response) {
+//       return console.log("Falha ao actualizar produto, verifque o stock do produto");
+//     }
+//     console.log(response);
+//     params.setOpenEditCarr(false);
+//   }
 
-  return (
-    <section className="flex justify-center items-center fixed top-0 left-0 w-full h-screen bg-gray-700 bg-opacity-75">
-      <form
-        onSubmit={handleSubmit(sendForm)}
-        className="flex p-2 gap-4 items-center flex-col flex-wrap rounded shadow shadow-gray-700  bg-gray-800"
-      >
-        <fieldset className="grid grid-cols-1 place-items-center gap-2 w-full flex-wrap">
-          <input
-            {...register("quantidade", { valueAsNumber: true })}
-            defaultValue={params.quantidade}
-            className="p-1 w-full outline-none border border-gray-600 rounded-md"
-            type="number"
-            min={1}
-            placeholder="0"
-            id="quantidade"
-          />
-          {errors.quantidade && (
-            <span className="text-red-500 text-xs">
-              {errors.quantidade.message}
-            </span>
-          )}
-        </fieldset>
-        <div className="flex gap-3">
-          <button
-            onClick={() => params.setOpenEditCarr(false)}
-            className=" bg-red-500 p-1 rounded-md hover:bg-opacity-70"
-          >
-            Cancelar
-          </button>
-          <button
-            className="bg-green-500 p-1 rounded-md hover:bg-opacity-70"
-            type="submit"
-          >
-            Salvar
-          </button>
-        </div>
-      </form>
-    </section>
-  );
-};
+//   return (
+//     <section className="flex justify-center items-center fixed top-0 left-0 w-full h-screen bg-gray-700 bg-opacity-75">
+//       <form
+//         onSubmit={handleSubmit(sendForm)}
+//         className="flex p-2 gap-4 items-center flex-col flex-wrap rounded shadow shadow-gray-700  bg-gray-800"
+//       >
+//         <fieldset className="grid grid-cols-1 place-items-center gap-2 w-full flex-wrap">
+//           <input
+//             {...register("quantidade", { valueAsNumber: true })}
+//             defaultValue={params.quantidade}
+//             className="p-1 w-full outline-none border border-gray-600 rounded-md"
+//             type="number"
+//             min={1}
+//             placeholder="0"
+//             id="quantidade"
+//           />
+//           {errors.quantidade && (
+//             <span className="text-red-500 text-xs">
+//               {errors.quantidade.message}
+//             </span>
+//           )}
+//         </fieldset>
+//         <div className="flex gap-3">
+//           <button
+//             onClick={() => params.setOpenEditCarr(false)}
+//             className=" bg-red-500 p-1 rounded-md hover:bg-opacity-70"
+//           >
+//             Cancelar
+//           </button>
+//           <button
+//             className="bg-green-500 p-1 rounded-md hover:bg-opacity-70"
+//             type="submit"
+//           >
+//             Salvar
+//           </button>
+//         </div>
+//       </form>
+//     </section>
+//   );
+// };

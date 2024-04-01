@@ -48,7 +48,7 @@ export const NovaVenda = () => {
 
   useEffect(() => {
     getCarrinho();
-  }, [sendForm, getCarrinho]);
+  }, [sendForm]);
 
   return (
     <section className=" bg-gray-100 flex flex-col ml-60 h-screen p-4">

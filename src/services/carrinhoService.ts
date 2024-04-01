@@ -27,17 +27,17 @@ export const createCarrinho = (data: Record<string, any>) => {
   return response;
 };
 
-export const updateCarrinho = (id: string, data: Record<string, any>) => {
-  const response = axios
-    .patch(`${baseURL}/carrinho/update/${id}`, data, {
-      headers: { Authorization: `Bearer ${Cookies.get("tokenFunc")}` },
-    })
-    .catch((error) => {
-      response;
-      return console.log({ message: error.message });
-    });
-  return response;
-};
+// export const updateCarrinho = (id: string, data: Record<string, any>) => {
+//   const response = axios
+//     .patch(`${baseURL}/carrinho/update/${id}`, data, {
+//       headers: { Authorization: `Bearer ${Cookies.get("tokenFunc")}` },
+//     })
+//     .catch((error) => {
+//       response;
+//       return console.log({ message: error.message });
+//     });
+//   return response;
+// };
 
 export const deleteCarrinho = (id: string) => {
   const response = axios
