@@ -42,7 +42,7 @@ export const updateCarrinho = (id: string, data: Record<string, any>) => {
 export const deleteCarrinho = (id: string) => {
   const response = axios
     .delete(`${baseURL}/carrinho/delete/${id}`, {
-      headers: { Authorization: `Bearer ${"tokenFunc"}` },
+      headers: { Authorization: `Bearer ${Cookies.get("tokenFunc")}` },
     })
     .catch((error) => {
       response;
