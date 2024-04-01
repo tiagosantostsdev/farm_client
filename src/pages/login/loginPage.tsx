@@ -7,8 +7,10 @@ import { admSchema, inSchema } from "../../components/Schema/admSchema";
 import { admSignIn } from "../../services/adminServices";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import { Spinner } from "../../components/Spinner/Spinner";
 
 export const Login = () => {
+  const [status, setStatus]=useState(false)
   const [errorLogin, setErrorLogin] = useState(false);
   const {
     register,
@@ -18,10 +20,13 @@ export const Login = () => {
   } = useForm<admSchema>({ resolver: zodResolver(inSchema) });
 
   async function sendForm(data: Record<string, any>) {
+    setStatus(true)
     const response = await admSignIn(data);
     if (!response) {
+      setStatus(false)
       return setErrorLogin(true);
     }
+    setStatus(false)
     Cookies.remove("tokenFunc")
     Cookies.set("token", response.data.token, { expires: 1 });
     location.href = "/home";
@@ -31,7 +36,7 @@ export const Login = () => {
   return (
     <>
       <div className="bg-[url('./assets/fundo1.jpg')] bg-no-repeat flex justify-center items-center h-screen">
-        <form
+        {status ? <Spinner/> : <form
           onSubmit={handleSubmit(sendForm)}
           className=" bg-gray-200 bg-opacity-40 flex flex-col w-9/12 max-w-lg p-8 shadow-xl shadow-black-500 rounded-lg justify-center"
         >
@@ -82,7 +87,7 @@ export const Login = () => {
             Funcionário?
           </Link>
           <Button type="submit" text="Iniciar Sessão" />
-        </form>
+        </form>}
       </div>
     </>
   );
