@@ -14,23 +14,26 @@ export const ConfirmVendas = (params: Record<string, any>) => {
   } = useForm<createVendasType>({ resolver: zodResolver(createVendasSchema) });
 
   async function sendForm(data: Record<string, any>) {
-    if (data.valor < params.total) {
+    const total: number = params.total;
+    if (data.valor < total) {
       return setErro(true);
     }
     setErro(false);
+  
     const response = await createVendas(data);
     if (!response) {
       return console.log("Falha ao adicionar novo cliente");
     }
-    console.log(response)
+    console.log(response);
     const id = response.data;
-    const res = await updateVendas(id, data);
+    const troco: number = data.valor - total;
+    const res = await updateVendas(id, data, total, troco);
     if (!res) {
       return console.log("Falha ao actualizar venda");
     }
-    console.log(res)
+    console.log(res);
     reset();
-    location.href = "/vendas"
+    location.href = "/vendas";
     params.setOpen(false);
   }
 
@@ -77,7 +80,11 @@ export const ConfirmVendas = (params: Record<string, any>) => {
             )}
           </span>
         </fieldset>
-          {erro && <span className="text-center text-red-500 text-xl">Valor insuficiente</span>}
+        {erro && (
+          <span className="text-center text-red-500 text-xl">
+            Valor insuficiente
+          </span>
+        )}
         <p className="text-white text-xl">
           Total: <span>{params.total}</span>
           <span className="text-sm">Kz</span>{" "}

@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const baseURL = import.meta.env.VITE_BASE_URL
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 export const findVendas = () => {
   const response = axios.get(`${baseURL}/vendas`).catch((error) => {
@@ -29,12 +29,19 @@ export const createVendas = (data: Record<string, any>) => {
   return response;
 };
 
-export const updateVendas = (id: string, data: Record<string, any>) => {
+export const updateVendas = (
+  id: string,
+  data: Record<string, any>,
+  total: number,
+  troco: number
+) => {
   const response = axios
     .patch(
       `${baseURL}/vendas/update/${id}`,
       {
         valor: data.valor,
+        total: total,
+        troco: troco,
       },
       {
         headers: { Authorization: `Bearer ${Cookies.get("tokenFunc")}` },
