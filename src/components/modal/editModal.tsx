@@ -24,11 +24,11 @@ import {
   updateProdutosType,
 } from "../Schema/produtoSchema";
 import { updateProdutos } from "../../services/produtosService";
-import { updateCarrinho } from "../../services/carrinhoService";
-import {
-  updateCarrinhoSchema,
-  updateCarrinhoType,
-} from "../Schema/carrinhoSchema";
+// import { updateCarrinho } from "../../services/carrinhoService";
+// import {
+//   updateCarrinhoSchema,
+//   updateCarrinhoType,
+// } from "../Schema/carrinhoSchema";
 
 export const EditModal = (params: Record<string, any>) => {
   const { user } = useContext(UserContext);
