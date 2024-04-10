@@ -6,12 +6,12 @@ import {
   redefinirSenhaType,
 } from "../../components/Schema/admSchema";
 import { Label } from "../../components/Labels/label";
-import { redefinirSenha } from "../../services/adminServices";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Spinner } from "../../components/Spinner/Spinner";
+import { redefinirSenhaFunc } from "../../services/funcionariosService";
 
-export const RedefinirASenha = () => {
+export const RedefinirASenhaFunc = () => {
   const navigate = useNavigate();
   const [status, setStatus] = useState(false);
   const [erro, setErro] = useState(false);
@@ -26,13 +26,13 @@ export const RedefinirASenha = () => {
 
   async function sendForm(data: Record<string, any>) {
     setStatus(true);
-    const response = await redefinirSenha(data);
+    const response = await redefinirSenhaFunc(data);
     if (!response) {
       setStatus(false);
       return setErro(true);
     }
     setStatus(false);
-    navigate("/");
+    navigate("/auth/funcionario");
     reset();
   }
 

@@ -30,7 +30,7 @@ export const Venda = () => {
         </Link>
       </div>}
 
-      <div className="overflow-x-auto overflow-y-auto max-h-96">
+      <div className="overflow-x-auto overflow-y-auto max-h-[30rem]">
         <table className="w-full border border-gray-400">
           <caption className="font-bold mb-2">Produtos Vendidos</caption>
           <thead className="bg-gray-500 text-white font-bold h-10">
@@ -82,7 +82,7 @@ export const Venda = () => {
                 <td className="border border-collapse">{item.total}</td>
                 <td className="border border-collapse">{item.troco}</td>
                 <td className="border border-collapse">
-                  {item.Funcionario.usuario}
+                  {item.Funcionario?.usuario}
                 </td>
                 <td className="border border-collapse">{item.dataVenda}</td>
               </tr>

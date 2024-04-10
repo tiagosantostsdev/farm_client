@@ -1,32 +1,17 @@
-//import { useState } from "react";
-import { AiOutlineDelete} from "react-icons/ai";
-//import { EditModalCarr } from "../modal/editModal";
-import { deleteCarrinho } from "../../services/carrinhoService";
+import { useState } from "react";
+import { AiOutlineDelete } from "react-icons/ai";
+import { ConfModalCarr } from "../modal/confirmModal";
 
 export const TableRowCarrinho = (params: Record<string, any>) => {
- // const [openEditCarr, setOpenEditCarr] = useState(false);
-
-  async function remove() {
-    const response = await deleteCarrinho(params.id);
-    if (!response) {
-      return console.log("Erro ao remover item do carrinho");
-    }
-    console.log(response.data);
-  }
+  const [open, setOpen]=useState(false)
 
   return (
     <>
-      {/* {openEditCarr && (
-        <EditModalCarr
-          setOpenEditCarr={setOpenEditCarr}
-          id={params.id}
-          nome={params.nome}
-          quantidade={params.quantidade}
-          dosagem={params.dosagem}
-          descricao={params.descricao}
-          preco={params.preco}
-        />
-      )} */}
+    {open && <ConfModalCarr
+      setOpen={setOpen}
+      nome={params.nome}
+      id={params.id}
+    />}
       <tr
         key={params.id}
         className="bg-white border-collapse border text-sm text-center"
@@ -37,7 +22,7 @@ export const TableRowCarrinho = (params: Record<string, any>) => {
         <td className="border border-collapse">{params.dosagem}</td>
         <td className="flex text-xl justify-evenly">
           <i className="text-red-600">
-            <AiOutlineDelete onClick={remove} />
+            <AiOutlineDelete className="cursor-pointer" onClick={()=> setOpen(true)} />
           </i>
         </td>
       </tr>

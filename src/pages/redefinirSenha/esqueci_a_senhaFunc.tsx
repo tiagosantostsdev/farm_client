@@ -5,13 +5,13 @@ import {
   esqueciSenhaSchema,
   esqueciSenhaType,
 } from "../../components/Schema/admSchema";
-import { esqueciSenha } from "../../services/adminServices";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useState } from "react";
 import { Spinner } from "../../components/Spinner/Spinner";
+import { esqueciSenhaFunc } from "../../services/funcionariosService";
 
-export const EsqueciASenha = () => {
+export const EsqueciASenhaFunc = () => {
   const [status, setStatus] = useState(false);
   const [erro, setErro] = useState(false);
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export const EsqueciASenha = () => {
 
   async function sendForm(data: Record<string, any>) {
     setStatus(true);
-    const response = await esqueciSenha(data);
+    const response = await esqueciSenhaFunc(data);
     if (!response) {
       setStatus(false);
       setErro(true);
@@ -32,7 +32,7 @@ export const EsqueciASenha = () => {
     }
     setStatus(false);
     Cookies.set("email", data.email, {expires: 1});
-    navigate("/admin/redefinir-senha");
+    navigate("/funcionario/redefinir-senha");
     reset();
   }
 

@@ -46,7 +46,7 @@ export const NovaVenda = () => {
     setTotal(response.data.total);
   }
 
-  useEffect(() => {
+useEffect(() => {
     getCarrinho();
   }, [sendForm]);
 
@@ -145,6 +145,7 @@ export const NovaVenda = () => {
                 quantidade={item.quantidade}
                 descricao={item.descricao}
                 dosagem={item.dosagem}
+                effect={useEffect}
               />
             ))}
           </tbody>

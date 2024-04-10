@@ -20,6 +20,8 @@ import { Admin } from "./pages/admin/admin.tsx";
 import { NovaVenda } from "./pages/venda/novaVenda.tsx";
 import Cookies from "js-cookie";
 import { ErrorPage } from "./pages/errorPage/errorPage.tsx";
+import { RedefinirASenhaFunc } from "./pages/redefinirSenha/redefinir_a_senhFunc.tsx";
+import { EsqueciASenhaFunc } from "./pages/redefinirSenha/esqueci_a_senhaFunc.tsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,8 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Login /> },
       { path: "/auth/funcionario", element: <LoginFunc /> },
+      { path: "/funcionario/esqueci-a-senha", element: <EsqueciASenhaFunc /> },
+      { path: "/funcionario/redefinir-senha", element: <RedefinirASenhaFunc /> },
       { path: "/admin/esqueci-a-senha", element: <EsqueciASenha /> },
       { path: "/admin/redefinir-senha", element: <RedefinirASenha /> },
       Cookies.get("token") || Cookies.get("tokenFunc")

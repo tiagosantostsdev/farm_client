@@ -37,7 +37,7 @@ export const Fornecedor = () => {
   async function getFornecedores() {
     const response = await findFornecedores();
     if (!response) {
-      return console.log({ message: "Falha ao buscar funcionários" });
+      return console.log({ message: "Falha ao buscar fornecedores" });
     }
     setData(response.data);
   }

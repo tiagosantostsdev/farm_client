@@ -5,6 +5,7 @@ import { deleteFuncionario } from "../../services/funcionariosService";
 import { deleteFornecedores } from "../../services/fornecedoresService";
 import { deleteFabricantes } from "../../services/fabricanteServices";
 import { deleteProdutos } from "../../services/produtosService";
+import { deleteCarrinho } from "../../services/carrinhoService";
 
 export const ConfModal = (params: Record<string, any>) => {
   const { user } = useContext(UserContext);
@@ -183,6 +184,46 @@ export const ConfModalProd = (params: Record<string, any>) => {
       >
         <p className="text-cyan-50">
           Tem certeza de que quer eliminar este produto {params.nome}?
+        </p>
+        <div className="flex gap-3">
+          <button
+            onClick={() => params.setOpen(false)}
+            className=" bg-red-500 p-1 rounded-md hover:bg-opacity-70"
+          >
+            Cancelar
+          </button>
+          <button
+            className="bg-green-500 p-1 rounded-md hover:bg-opacity-70"
+            type="submit"
+          >
+            Confirmar
+          </button>
+        </div>
+      </form>
+    </section>
+  );
+};
+
+export const ConfModalCarr = (params: Record<string, any>) => {
+  async function sendForm(e: any) {
+    e.preventDefault();
+    const response = await deleteCarrinho(params.id);
+    if (!response) {
+      return console.log("Erro ao remover item do carrinho");
+    }
+    console.log(response.data);
+    location.reload()
+    params.setOpen(false);
+  }
+
+  return (
+    <section className="flex justify-center items-center fixed top-0 left-0 w-full h-screen bg-gray-700 bg-opacity-75">
+      <form
+        onSubmit={sendForm}
+        className="flex flex-col gap-3 items-center bg-gray-800 p-7 rounded"
+      >
+        <p className="text-cyan-50">
+          Tem certeza de que quer eliminar este produto {params.nome} da lista?
         </p>
         <div className="flex gap-3">
           <button

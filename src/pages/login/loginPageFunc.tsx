@@ -79,6 +79,12 @@ export const LoginFunc = () => {
                 Usuário ou senha inválido
               </span>
             )}
+            <Link
+              to={"/funcionario/esqueci-a-senha"}
+              className="mt-2 text-blue-800 font-medium"
+            >
+              Esqueceu a senha?
+            </Link>
             <Link to={"/"} className="mt-2  text-blue-800 font-medium">
               Administrador?
             </Link>

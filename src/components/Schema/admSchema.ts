@@ -24,7 +24,7 @@ export const redefinirSenhaSchema = z
   .object({
     codigo: z
       .string()
-      .min(6, { message: "Código de inválido" })
+      .min(6, { message: "Código de inválido" }).max(6)
       .refine((value) => !/^\s*$/.test(value), {
         message: "O campo código não pode conter apenas espaços",
       }),

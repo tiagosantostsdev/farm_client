@@ -43,6 +43,33 @@ export const createFuncionario = (
   return response;
 };
 
+export const esqueciSenhaFunc = (data: Record<string, any>) => {
+  const response = axios
+    .post(`${baseURL}/funcionarios/esqueci-a-senha`, data)
+    .catch((error) => {
+      response;
+      return console.log({ message: error.message });
+    });
+  return response;
+};
+
+export const redefinirSenhaFunc = (data: Record<string, any>) => {
+  delete data.confPassword;
+  const email = Cookies.get("email");
+  const response = axios
+    .post(`${baseURL}/funcionarios/redefinir-senha`, {
+      email: email,
+      codigo: data.codigo,
+      senha: data.password,
+    })
+    .catch((error) => {
+      response;
+      return console.log({ message: error.message });
+    });
+  Cookies.remove("email");
+  return response;
+};
+
 export const updateFuncionario = (id: string, data: Record<string, any>) => {
   const response = axios
     .patch(`${baseURL}/funcionarios/update/${id}`, data, {
