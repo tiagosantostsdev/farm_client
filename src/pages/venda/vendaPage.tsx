@@ -30,7 +30,7 @@ export const Venda = () => {
         </Link>
       </div>}
 
-      <div className="overflow-x-auto overflow-y-auto max-h-[30rem]">
+      <div className="overflow-x-auto overflow-y-auto max-h-[34rem]">
         <table className="w-full border border-gray-400">
           <caption className="font-bold mb-2">Produtos Vendidos</caption>
           <thead className="bg-gray-500 text-white font-bold h-10">
