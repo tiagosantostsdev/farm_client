@@ -20,7 +20,7 @@ export const Venda = () => {
   }, []);
 
   return (
-    <section className="bg-gray-100 flex flex-col ml-60 h-screen p-4">
+    <section className="bg-gray-100 flex flex-col ml-60 max-md:ml-[12rem] h-screen p-4">
       {user.usuario && <div className="flex justify-end">
         <Link
           to={"/novavenda"}

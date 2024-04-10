@@ -35,7 +35,7 @@ export const Login = () => {
 
   return (
     <>
-      <div className="bg-[url('./assets/fundo1.jpg')] bg-no-repeat flex justify-center items-center h-screen">
+      <div className="bg-[url('./assets/fundo1.jpg')] bg-no-repeat bg-cover flex justify-center items-center h-screen">
         {status ? (
           <Spinner />
         ) : (

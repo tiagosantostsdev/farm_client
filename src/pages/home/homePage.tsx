@@ -36,7 +36,7 @@ export const Main = () => {
 
   return (
     <>
-      <section className=" bg-gray-100 flex flex-col ml-60 h-screen p-4">
+      <section className=" bg-gray-100 flex flex-col ml-60 max-md:ml-[12rem] h-screen p-4">
         <div className="flex w-full justify-between">
           <div className="mb-4">
             <h1 className="font-bold">Dashboard</h1>
