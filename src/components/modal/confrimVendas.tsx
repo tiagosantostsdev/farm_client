@@ -14,12 +14,16 @@ export const ConfirmVendas = (params: Record<string, any>) => {
   } = useForm<createVendasType>({ resolver: zodResolver(createVendasSchema) });
 
   async function sendForm(data: Record<string, any>) {
+    if (!data.nomeCliente && !data.valor) {
+      return console.log("Preencha os campos solicitados por favor!");
+    }
+
     const total: number = params.total;
     if (data.valor < total) {
       return setErro(true);
     }
     setErro(false);
-  
+
     const response = await createVendas(data);
     if (!response) {
       return console.log("Falha ao adicionar novo cliente");
