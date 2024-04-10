@@ -54,7 +54,7 @@ export const Aside = () => {
 
   return (
     <div className=" fixed top-14  w-screen">
-      <aside className="max-md:w-[12rem] flex flex-col w-60 bg-white shadow-lg shadow-gray-400 h-full absolute ">
+      <aside className="max-sm:w-[8.5rem] flex flex-col w-60 bg-white shadow-lg shadow-gray-400 h-full absolute ">
         <div className=" select-none flex flex-col items-center mt-3">
           <i className="text-6xl bg-gray-200 rounded-full w-20 h-20 flex justify-center items-center">
             <AiOutlineUser className="text-red-500" />
