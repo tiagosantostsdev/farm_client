@@ -190,7 +190,7 @@ export const Produtos = () => {
         </form>
       )}
 
-      <div className="overflow-x-auto overflow-y-auto max-h-60">
+      <div className="overflow-x-auto overflow-y-auto max-h-[30rem]">
         <table className="w-full border border-gray-400">
           <caption className="font-bold m-2">Tabela de Produtos</caption>
           <thead className="bg-gray-500 text-white font-bold h-10">

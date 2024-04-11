@@ -46,6 +46,7 @@ export const Admin = () => {
           Administradores
         </Link>
       </div>
+
       <form
         onSubmit={handleSubmit(sendForm)}
         className="flex p-2 gap-4 items-center flex-col flex-wrap rounded w-full shadow shadow-gray-700 min-h-52 bg-white"
@@ -55,7 +56,7 @@ export const Admin = () => {
             <Label id="admin" text="Nome de administrador" />
             <input
               {...register("admin")}
-              className="p-1 w-full outline-none border border-gray-600 rounded-md"
+              className=" p-1 w-full outline-none border border-gray-600 rounded-md"
               type="text"
               placeholder="Ex: Orlando Miguel"
               id="admin"
@@ -127,7 +128,8 @@ export const Admin = () => {
           </button>
         </div>
       </form>
-      <div className="overflow-x-auto overflow-y-auto max-h-60">
+
+      <div className="overflow-x-auto overflow-y-auto max-h-[30rem]">
         <table className="w-full text-center border border-gray-400">
           <caption>
             <h1 className="text-center font-bold m-2">
