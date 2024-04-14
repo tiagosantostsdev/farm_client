@@ -51,7 +51,7 @@ export const Venda = () => {
                 key={item._id}
               >
                 <td>{item.nomeCliente}</td>
-                <td className="w-40">
+                <td className="w-[20%]">
                   <tr className="bg-white border-collapse border text-sm text-center">
                     <th className="border bg-slate-300">nome</th>
                     <th className="border bg-slate-300">quantidade</th>
