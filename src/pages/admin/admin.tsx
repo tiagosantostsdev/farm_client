@@ -8,7 +8,7 @@ import {
   createAdminSchema,
   createAdminType,
 } from "../../components/Schema/admSchema";
-import {TableRowAdmin } from "../../components/TableRows/tableRowAdmin";
+import { TableRowAdmin } from "../../components/TableRows/tableRowAdmin";
 
 export const Admin = () => {
   const [admin, setAdmin] = useState([]);
@@ -116,13 +116,13 @@ export const Admin = () => {
         <div className="flex gap-2">
           <button
             type="reset"
-            className=" rounded font-bold text-white bg-gray-500 p-1 px-2 hover:bg-gray-700 transition-all"
+            className=" rounded font-bold text-[16px] text-white bg-gray-500 p-1 px-2 hover:bg-gray-700 transition-all"
           >
             Limpar
           </button>
           <button
             type="submit"
-            className=" rounded font-bold text-white bg-green-500 p-1 px-2 hover:bg-green-700 transition-all"
+            className=" rounded font-bold text-[16px] text-white bg-green-500 p-1 px-2 hover:bg-green-700 transition-all"
           >
             Adicionar
           </button>
@@ -145,15 +145,15 @@ export const Admin = () => {
             </tr>
           </thead>
           <tbody>
-          {admin.map((item: Record<string, any>) => (
-            <TableRowAdmin
-              key={item._id}
-              id={item._id}
-              admin={item.admin}
-              email={item.email}
-              telemovel={item.telemovel}
-            />
-          ))}
+            {admin.map((item: Record<string, any>) => (
+              <TableRowAdmin
+                key={item._id}
+                id={item._id}
+                admin={item.admin}
+                email={item.email}
+                telemovel={item.telemovel}
+              />
+            ))}
           </tbody>
         </table>
       </div>

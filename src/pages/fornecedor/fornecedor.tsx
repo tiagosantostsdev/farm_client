@@ -152,13 +152,13 @@ export const Fornecedor = () => {
         <div className="flex gap-3 ">
           <button
             type="reset"
-            className=" rounded font-bold text-white bg-gray-500 p-1 px-2 hover:bg-gray-700 transition-all"
+            className=" rounded font-bold text-[16px] text-white bg-gray-500 p-1 px-2 hover:bg-gray-700 transition-all"
           >
             Limpar
           </button>
           <button
             type="submit"
-            className=" rounded font-bold text-white bg-green-500 p-1 px-2 hover:bg-green-700 transition-all"
+            className=" rounded font-bold text-[16px] text-white bg-green-500 p-1 px-2 hover:bg-green-700 transition-all"
           >
             Adicionar
           </button>
