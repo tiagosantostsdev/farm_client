@@ -55,7 +55,7 @@ export const esqueciSenhaFunc = (data: Record<string, any>) => {
 
 export const redefinirSenhaFunc = (data: Record<string, any>) => {
   delete data.confPassword;
-  const email = Cookies.get("email");
+  const email = Cookies.get("emailFunc");
   const response = axios
     .post(`${baseURL}/funcionarios/redefinir-senha`, {
       email: email,
@@ -66,7 +66,7 @@ export const redefinirSenhaFunc = (data: Record<string, any>) => {
       response;
       return console.log({ message: error.message });
     });
-  Cookies.remove("email");
+  Cookies.remove("emailFunc");
   return response;
 };
 

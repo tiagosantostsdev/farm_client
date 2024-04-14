@@ -31,7 +31,7 @@ export const EsqueciASenhaFunc = () => {
       return console.log("Falha ao enviar email de válidação");
     }
     setStatus(false);
-    Cookies.set("email", data.email, {expires: 1});
+    Cookies.set("emailFunc", data.email, {expires: 1});
     navigate("/funcionario/redefinir-senha");
     reset();
   }
