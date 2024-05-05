@@ -53,3 +53,17 @@ export const updateVendas = (
     });
   return response;
 };
+
+export const deleteVendas = (id: string) => {
+  const response = axios
+    .delete(`${baseURL}/vendas/delete/${id}`, {
+      headers: {
+        Authorization: `Bearer ${Cookies.get("token")}`,
+      },
+    })
+    .catch((error) => {
+      response;
+      return console.log({ message: error.message });
+    });
+  return response;
+};
