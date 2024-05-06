@@ -23,9 +23,11 @@ export const ConfirmVendas = (params: Record<string, any>) => {
 
     const total: number = params.total;
     if (total === 0) {
+      setOpenSpinner(false);
       return setErro(true);
     } else {
       if (data.valor < total) {
+        setOpenSpinner(false);
         return setErro(true);
       }
     }
@@ -57,7 +59,7 @@ export const ConfirmVendas = (params: Record<string, any>) => {
         className="fixed top-1/3 left-1/3 flex p-2 gap-6 justify-center items-center flex-col flex-wrap rounded w-2/4 min-h-44 shadow shadow-gray-700 bg-gray-800 bg-opacity-80"
       >
         {openSpinner ? (
-          <Spinner />
+          <div className="flex flex-col items-center gap-2"><Spinner /> <span className="text-white">Finalizando...</span></div> 
         ) : (
           <>
             <fieldset className="grid grid-cols-2 place-items-center gap-2 w-full flex-wrap">
