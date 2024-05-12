@@ -57,7 +57,7 @@ export const Fabricante = () => {
 
       <form
         onSubmit={handleSubmit(sendForm)}
-        className="flex p-2 gap-4 items-center flex-col flex-wrap rounded w-full shadow shadow-gray-700 min-h-52 bg-white"
+        className="flex p-2 gap-4 items-center flex-col rounded w-full shadow shadow-gray-700 overflow-y-auto min-h-[13rem] bg-white"
       >
         <fieldset className="grid grid-cols-3 place-items-center gap-2 w-full flex-wrap">
           <span className="flex flex-col">
@@ -170,7 +170,7 @@ export const Fabricante = () => {
         </div>
       </form>
 
-      <div className="overflow-x-auto overflow-y-auto max-h-[30rem]">
+      <div className="overflow-x-auto overflow-y-auto max-h-[28.5rem]">
         <table className="w-full border border-gray-400">
           <caption className="font-bold m-2">Tabela de Fabricantes</caption>
           <thead className="bg-gray-500 text-white font-bold h-10">

@@ -61,7 +61,7 @@ useEffect(() => {
 
       <form
         onSubmit={handleSubmit(sendForm)}
-        className="flex p-2 pb-3 gap-4 items-center flex-col flex-wrap rounded w-full shadow shadow-gray-700 min-h-50 bg-white"
+        className="flex p-2 pb-3 gap-4 items-center flex-col rounded w-full shadow shadow-gray-700 overflow-y-auto min-h-[13rem] bg-white"
       >
         <fieldset className="grid grid-cols-2 place-items-center gap-2 w-full flex-wrap">
           <span className="flex flex-col">
@@ -124,7 +124,7 @@ useEffect(() => {
         </button>
       </div>
 
-      <div className="overflow-x-auto overflow-y-auto max-h-60">
+      <div className="overflow-x-auto overflow-y-auto max-h-[28.5rem]">
         <table className="w-full border border-gray-400">
           <caption className="font-bold mb-2">Produtos selecionados</caption>
           <thead className="bg-gray-500 text-white font-bold h-10">
